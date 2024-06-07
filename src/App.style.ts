@@ -1,89 +1,82 @@
-import styled, {createGlobalStyle} from "styled-components";
+import styled from 'styled-components' // Avoid import useless functions
 
-type Props ={
-    color?: string;
-    bg?:string;
-    bdbox?:string;
-    gc?:string;
+type Props = {
+  color?: string
+  bg?: string
+  bdBox?: string // Implement camelCase in all variables and functions
+  gc?: string
 }
 
 type Theme = {
-    theme: string;
+  theme: string
 }
 
 export const Container = styled.div`
-    max-width: 500px;
-    min-width: 300px;
-    margin: 0 auto;
-    user-select: none;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 0 auto;
+  user-select: none;
 
-    @media screen and (min-width: 450px){
-        min-width: 340px;
-        
-    }
-
+  @media screen and (min-width: 450px) {
+    min-width: 340px;
+  }
 `
 
 export const Flex = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-
 export const Header = styled(Flex)`
-    justify-content: space-between;
-    color: var(--white-text);
-    font-size: 1.2rem;
-
+  justify-content: space-between;
+  color: var(--white-text);
+  font-size: 1.2rem;
 `
 
 export const WrapperSwitch = styled(Flex)`
-    width: 115px;
-    font-size: 0.85rem;
-    align-items: flex-end;
-    justify-content: space-between;
+  width: 115px;
+  font-size: 0.85rem;
+  align-items: flex-end;
+  justify-content: space-between;
 `
 
 export const Switch = styled.div`
-    font-size: 0.9rem;
-    flex: 0.75;
-    justify-content: center;
-    align-items: center;
+  font-size: 0.9rem;
+  flex: 0.75;
+  justify-content: center;
+  align-items: center;
 
-    > div:first-of-type {
-        width: 80%;
-        font-size: 0.65rem;
-        font-weight: 100;
-        display: flex;
-        justify-content: space-between;
-        margin: 0 auto;
-    }
-
+  > div:first-of-type {
+    width: 80%;
+    font-size: 0.65rem;
+    font-weight: 100;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
 `
 
 export const SwitcherContainer = styled.div`
-    background-color: var(--toggle-background);
-    width: 100%;
-    min-height: 17px;
-    border-radius: 2rem;
-    position: relative;
-    z-index: 20;
-    cursor: pointer;
-
+  background-color: var(--toggle-background);
+  width: 100%;
+  min-height: 17px;
+  border-radius: 2rem;
+  position: relative;
+  z-index: 20;
+  cursor: pointer;
 `
 
 export const Switcher = styled.div<Theme>`
-    width: 11px;
-    height: 11px;
-    min-height: 11px;
-    background-color: var(--key-background-red);
-    border-radius: 2rem;
-    position: absolute;
-    left: ${(props) => props.theme};
-    top: 17%;
-    transition: all 0.1s linear;
-
+  width: 11px;
+  height: 11px;
+  min-height: 11px;
+  background-color: var(--key-background-red);
+  border-radius: 2rem;
+  position: absolute;
+  left: ${(props: Theme) => props.theme};
+  top: 17%;
+  transition: all 0.1s linear;
 `
 
 export const Input = styled.div`
@@ -96,7 +89,7 @@ export const Input = styled.div`
   text-align: right;
   margin: 1.3rem 0;
   border-radius: 0.5rem;
-`;
+`
 
 export const ButtonContainer = styled.div`
   width: 100%;
@@ -112,7 +105,7 @@ export const ButtonContainer = styled.div`
   @media screen and (min-width: 450px) {
     grid-template-columns: repeat(auto-fill, minmax(65px, 67px));
   }
-`;
+`
 
 export const Button = styled(Flex)<Props>`
   border-radius: 0.3rem;
@@ -120,15 +113,16 @@ export const Button = styled(Flex)<Props>`
   font-size: 1.2rem;
   opacity: 0.8;
   cursor: pointer;
-  max-width: ${(props) => (props.gc ? "100%" : "65px")};
-  grid-column: ${(props) => (props.gc ? props.gc : "auto")};
-  background-color: ${(props) =>
-    props.bg ? props.bg : "var(--key-background-orange) "};
-  color: ${(props) =>
-    props.color ? props.color : "var(--very-dark-grayish-blue)"};
+  max-width: ${(props: Props) => (props.gc ? '100%' : '65px')};
+  grid-column: ${(props: Props) => (props.gc ? props.gc : 'auto')};
+  background-color: ${(props: Props) =>
+    props.bg ? props.bg : 'var(--key-background-orange) '};
+  color: ${(props: Props) =>
+    props.color ? props.color : 'var(--very-dark-grayish-blue)'};
   box-shadow: 0 3px 0
-    ${(props) => (props.bdbox ? props.bdbox : "var(--key-shadow-orange)")};
+    ${(props: Props) =>
+      props.bdBox ? props.bdBox : 'var(--key-shadow-orange)'};
   &:hover {
     opacity: 1;
   }
-`;
+`
