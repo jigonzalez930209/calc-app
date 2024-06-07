@@ -1,4 +1,7 @@
 import styled from 'styled-components' // Avoid import useless functions
+// W : personalmente no me gusta estilar los componentes de esta forma, me gusta mas crear los componentes en
+// una carpeta de componentes y despues usarlos de ahí, es la forma mas común de hacerlo
+// TODO: si quieres te puedes meter en mis proyectos e ir viendo como hago las cosas
 
 type Props = {
   color?: string
